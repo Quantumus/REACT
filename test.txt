@@ -1,0 +1,55 @@
+1 init package.json
+=> npm init
+2 install tailwind 
+=> npm install tailwindcss postcss autoprefixer
+3 created postcss.config.js and paste
+-----------------------in postcss file
+
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+
+4 and created tailwind config
+=>npx tailwindcss init
+
+5 created build folder then inside created html (css folder) in (css folder) created your css file then paste
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+6 and install live-server
+=> npm i live-server
+
+7 when paste @tailwind unknown at-rule then install stylelint
+
+=> code --install-extension stylelint.vscode-stylelint
+
+then
+
+=> npm install stylelint-config-recommended --save-dev
+
+8 copy this to your setting json
+
+"css.validate": false, // Disable css built-in lint
+"stylelint.enable": true, // Enable sytlelint
+8 then created .stylelintrc and paste 
+
+{
+  "extends": "stylelint-config-recommended",
+  "rules": {
+    "at-rule-no-unknown": [ true, {
+      "ignoreAtRules": [
+        "extends",
+        "tailwind"
+      ]
+    }],
+    "block-no-empty": null,
+    "unit-whitelist": ["em", "rem", "s"]
+  }
+} 
+into it then done works fine ^^
+
